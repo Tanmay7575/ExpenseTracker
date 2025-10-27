@@ -1,0 +1,57 @@
+POST http://localhost:8080/api/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Tanmay",
+     "email":"fake@gmail.com",
+     "password":"12345678"
+}
+
+###
+
+POST http://localhost:8080/api/login HTTP/1.1
+content-type: application/json
+
+{
+      "email":"fake@gmail.com",
+     "password":"12345678"
+}
+###
+GET http://localhost:8080/api/ HTTP/1.1
+content-type: application/json
+
+###
+
+POST http://localhost:8080/api/logout HTTP/1.1
+content-type: application/json
+
+###
+
+POST http://localhost:8080/api/expense/createExpense HTTP/1.1
+content-type: application/json
+
+{
+     "title":"Ele Bill",
+     "amount":2000,
+     "category":"Consumption",
+     "date":"2025-10-26"
+}
+
+###
+GET http://localhost:8080/api/expense/ HTTP/1.1
+content-type: application/json
+###
+
+DELETE  http://localhost:8080/api/expense/68fe251bb62878a1dd9c2ad3 HTTP/1.1
+content-type: application/json
+###
+
+PUT http://localhost:8080/api/expense/68fe25b591a7f61774429336 HTTP/1.1
+content-type: application/json
+
+{
+     "title":"dahi And Milk"
+}
+
+
+
