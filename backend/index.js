@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
-const port=8080;
+const port=process.env.PORT;
 const app=express();
 
 const connectDB=async()=>{
@@ -26,7 +26,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
 app.use(cors({
-  origin:'http://localhost:5173',
+  origin:process.env.FRONTEND_URL,
   credentials:true,
 }));
 
