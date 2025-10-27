@@ -67,7 +67,7 @@ export const logout=async()=>{
     if(!response.ok){
         throw new Error("Something went wrong");
     }
-    return response.json();
+   
   }
 
 export const forgotPassword=async(email)=>{

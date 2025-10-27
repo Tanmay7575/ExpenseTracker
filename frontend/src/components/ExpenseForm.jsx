@@ -18,8 +18,6 @@ const ExpenseForm = ({addExp,initial,onUpdate}) => {
           });
          }
      },[initial]);
-     console.log(initial);
-    
      const handleSubmit=async(e)=>{
         e.preventDefault();
         if(initial && onUpdate){
