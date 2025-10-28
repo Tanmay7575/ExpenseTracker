@@ -17,14 +17,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await apiClient.loginUser(user);
-    if (response) {
+      const response = await apiClient.loginUser(user);
+      console.log(response);
       alert("User Logged In Successfully");
       refetchToken();
       navigate(redirectPath, { replace: true });
-    } else {
-      alert("Unauthorized");
-    }
+      
   };
 
   return (
