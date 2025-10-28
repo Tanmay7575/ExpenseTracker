@@ -3,6 +3,8 @@ import nodemailer from "nodemailer"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+//register a user
+
 export const register= async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -46,7 +48,7 @@ export const register= async (req, res) => {
   }
 };
 
-
+//login user
 export const login=async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -79,6 +81,7 @@ export const login=async (req, res) => {
   }
 };
 
+//if you want to forgot password 
 export const forgotPassword=async(req,res)=>{
   try {
     const {email}=req.body;
@@ -116,6 +119,7 @@ export const forgotPassword=async(req,res)=>{
   }
 };
 
+//reset password using nodemailer
 export const resetPassword=async(req,res)=>{
   try {
 
@@ -135,15 +139,18 @@ export const resetPassword=async(req,res)=>{
   }
 };
 
+// get all users
 export const allUsers=async (req, res) => {
   const users = await User.find();
   return res.status(200).json(users);
 };
 
+//verify token for authentication in frontend
 export const verifyTok= (req, res) => {
   res.status(200).json({ userId: req.userId, role: req.role });
 };
 
+//logout the valid user
 export const logout= (req, res) => {
   res.clearCookie("auth_token", {
     httpOnly: true,

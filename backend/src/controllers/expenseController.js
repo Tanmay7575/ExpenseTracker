@@ -1,6 +1,8 @@
 import Expense from "../model/Expense.js";
 import User from "../model/User.js";
 
+
+//create Expense
 export const createExpense = async (req, res) => {
   try {
     const { title, amount, category ,date} = req.body;
@@ -36,6 +38,7 @@ export const createExpense = async (req, res) => {
   }
 };
 
+//Get all expenses valid logged in user
 export const getAllExpense= async(req,res)=>{
     try {
         const userId=req.userId;
@@ -49,6 +52,7 @@ export const getAllExpense= async(req,res)=>{
     }
 }
 
+//delete expense by id
 export const deleteExpense=async(req,res)=>{
   try {
      const {id}=req.params;
@@ -63,6 +67,7 @@ export const deleteExpense=async(req,res)=>{
   }
 }
 
+//update expense by id
 export const updateExpense = async(req,res)=>{
   try {
     const {id}=req.params;
@@ -81,3 +86,4 @@ export const updateExpense = async(req,res)=>{
     res.status(500).json({error:"Server Error"});
   }
 }
+

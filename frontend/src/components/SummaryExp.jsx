@@ -4,15 +4,18 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const SummaryExp=({ expenses })=> {
+  //calculate totle expenses 
   const total = useMemo(() => expenses.reduce((s, e) => s + Number(e.amount), 0), [expenses]);
-
+ 
+  //separate and calculate expense by using category
   const categoryMap = useMemo(() => {
     return expenses.reduce((acc, e) => {
       acc[e.category] = (acc[e.category] || 0) + Number(e.amount);
       return acc;
     }, {});
   }, [expenses]);
-
+ 
+  //set labels and datavalues
   const labels = Object.keys(categoryMap);
   const dataValues = Object.values(categoryMap);
 

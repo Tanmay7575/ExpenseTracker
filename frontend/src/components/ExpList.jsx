@@ -1,6 +1,7 @@
 import { useState } from "react"
 import ExpenseForm from "./ExpenseForm";
 
+//display of expenses using map functionality
 
 const ExpList = ({expenses,deleteExp,update}) => {
   const [editingId,setEditingId]=useState(null);
@@ -24,6 +25,7 @@ const ExpList = ({expenses,deleteExp,update}) => {
             </div>
             {editingId === exp._id ? (
               <div className="w-full mt-3">
+                {/* passed update function and initial expense by propes */}
                 <ExpenseForm initial={exp} onUpdate={(id,expense)=> { update(id,expense); setEditingId(null);} } />
               </div>
             ):<></>}

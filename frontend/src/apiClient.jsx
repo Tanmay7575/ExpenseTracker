@@ -1,3 +1,6 @@
+
+//All backend APIs/Routes in one place
+
 const backend_url=import.meta.env.VITE_BACKEND_URL;
 
 export const registerUser = async (user) => {

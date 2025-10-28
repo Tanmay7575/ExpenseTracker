@@ -10,6 +10,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
+  //logout functionality 
+  //it remove token for cookie storage 
   const Logout = async () => {
     try {
       await apiClient.logout();
