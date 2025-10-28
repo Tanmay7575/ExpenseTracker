@@ -15,6 +15,7 @@ const Navbar = () => {
       await apiClient.logout();
       queryClient.invalidateQueries(["validateToken"]);
       refetchToken();
+       setTimeout(() => navigate("/"), 1000);
     } catch (error) {
       console.log(error);
     }

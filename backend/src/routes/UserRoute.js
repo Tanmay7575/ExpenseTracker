@@ -18,8 +18,9 @@ router
   .post("/forgot-password", forgotPassword)
   .post("/reset-password/:token", resetPassword)
   .post("/logout",logout);
-router.get("/", allUsers);
 
-router.get("/validate_token", verifyToken,verifyTok);
+  
+router.get("/", allUsers).get("/validate_token", verifyToken,verifyTok);
+
 
 export default router;
