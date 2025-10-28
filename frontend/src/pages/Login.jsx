@@ -19,8 +19,6 @@ const Login = () => {
   e.preventDefault();
   try {
     const response = await apiClient.loginUser(user);
-    console.log(response);
-
     alert("User Logged In Successfully");
     refetchToken();
     navigate(redirectPath, { replace: true });
@@ -28,7 +26,7 @@ const Login = () => {
     if (error.response && error.response.data && error.response.data.message) {
       alert(error.response.data.message);
     } else {
-      alert("Something went wrong. Please try again.");
+      alert("Invalid Credentials");
     }
     console.error("Login Error:", error);
   }

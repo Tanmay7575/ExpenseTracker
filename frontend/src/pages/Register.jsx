@@ -18,14 +18,21 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await apiClient.registerUser(user);
-    if (response) {
-      alert("User Registered Successfully");
-      refetchToken();
-      navigate(redirectPath, { replace: true });
-    } else {
-      alert("User Already Registered");
-    }
+
+      e.preventDefault();
+      try {
+         const response = await apiClient.registerUser(user);
+        alert("User RegisterdLogged In Successfully");
+        refetchToken();
+        navigate("/");
+      } catch (error) {
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message);
+        } else {
+          alert("Something Went Wrong");
+        }
+        console.error("Login Error:", error);
+      }
   };
 
   return (
