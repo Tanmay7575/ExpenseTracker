@@ -22,7 +22,7 @@ const Register = () => {
       e.preventDefault();
       try {
          const response = await apiClient.registerUser(user);
-        alert("User RegisterdLogged In Successfully");
+        alert("User Registered Successfully");
         refetchToken();
         navigate("/");
       } catch (error) {
