@@ -17,7 +17,7 @@ A full-stack **Expense Tracker** app that allows authenticated users to **add, e
 ## Tech Stack
 
 **Frontend**
-- React (Vitee)
+- React (Vite)
 - Tailwind CSS
 - Chart.js (via `react-chartjs-2`)
 
