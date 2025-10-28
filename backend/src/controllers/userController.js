@@ -140,4 +140,16 @@ export const allUsers=async (req, res) => {
   return res.status(200).json(users);
 };
 
+export const verifyTok= (req, res) => {
+  res.status(200).json({ userId: req.userId, role: req.role });
+};
+
+export const logout= (req, res) => {
+  res.clearCookie("auth_token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+  });
+  res.status(200).json({ message: "Logged Out Successfully" });
+};
 

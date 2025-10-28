@@ -6,6 +6,8 @@ import {
   forgotPassword,
   resetPassword,
   allUsers,
+  logout,
+  verifyTok
 } from "../controllers/userController.js";
 
 const router = Router();
@@ -14,21 +16,10 @@ router
   .post("/register", register)
   .post("/login", login)
   .post("/forgot-password", forgotPassword)
-  .post("/reset-password/:token", resetPassword);
-
+  .post("/reset-password/:token", resetPassword)
+  .post("/logout",logout);
 router.get("/", allUsers);
 
-router.get("/validate_token", verifyToken, (req, res) => {
-  res.status(200).json({ userId: req.userId, role: req.role });
-});
-
-router.post("/logout", (req, res) => {
-  res.clearCookie("auth_token", {
-    httpOnly: true,
-    secure: false,
-    sameSite: "lax",
-  });
-  res.status(200).json({ message: "Logged Out Successfully" });
-});
+router.get("/validate_token", verifyToken,verifyTok);
 
 export default router;
