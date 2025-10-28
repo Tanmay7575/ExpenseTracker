@@ -15,15 +15,24 @@ const Login = () => {
   const redirectPath = searchParams.get("redirect") || "/";
   const { refetchToken } = useAppContext();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-      const response = await apiClient.loginUser(user);
-      console.log(response);
-      alert("User Logged In Successfully");
-      refetchToken();
-      navigate(redirectPath, { replace: true });
-      
-  };
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await apiClient.loginUser(user);
+    console.log(response);
+
+    alert("User Logged In Successfully");
+    refetchToken();
+    navigate(redirectPath, { replace: true });
+  } catch (error) {
+    if (error.response && error.response.data && error.response.data.message) {
+      alert(error.response.data.message);
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+    console.error("Login Error:", error);
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 text-gray-800">
